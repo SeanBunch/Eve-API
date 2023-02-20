@@ -1,5 +1,16 @@
 # Eve Online video game API 
 
+A market price look up tool for Eve Online. This works by useing Eve Online APIs to fetch real time market prices of in game items. Although there are several popular Eve Market sites that perform this fucntion I want to build one with a better UI that more closely matches that of the in game market UI shown Below.
+
+TechStack: React.js frontend, and Express.js backend, PostgreSQL database. 
+
+## Intallation 
+
+npm install in the frontend and backend directories. npm run dev for nodemon backend and npm start for frontend. The frontend API is not yet developed. 
+
+
+  ![Eve market](/EveMarket_pic.PNG)
+
 ## ToDos:
 
 1. Make Express server. <---------finished
