@@ -14,4 +14,8 @@ exports.seed = async function (knex) {
   //   return knex("typeid_list").insert(dataArr);
   // })
 
+  // try / catch to find chunk size automagicaly?
+  // could I loop though the data array in chunks to insert on each iteration?
+  // could I loop through data all at once and insert?
+
 };

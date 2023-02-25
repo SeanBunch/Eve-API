@@ -15,6 +15,8 @@ async function dataArr() {
   }
   console.log(result[20000], result[40000], result[20001], result[40001])
   // return result.slice(40000);
+  return result;
+
 }
 
 // dataArr()
