@@ -29,6 +29,8 @@ Currently I have successfully seeded the PostgreSQL database with most of the da
 
 I wonder if the "fs" library could write all of the data to a new file from the csv. Then the data would be in the applicaiton and I could run search algorithms on the local file instead of making API calls to the database. 
 
+# new item:
+Need to take closer look at React v18 vs v16 I was used to before. 
 
 ## Mmm...
 What might be the performance impact of these 2 different ways be? 

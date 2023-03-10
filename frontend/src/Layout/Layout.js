@@ -12,6 +12,7 @@ function Layout() {
         <Header path="/*" />
         </div>
         <div className="col">
+          {/* need review of React v18 */}
 
           <Routes>
             <Route element={<Routing />}/>
