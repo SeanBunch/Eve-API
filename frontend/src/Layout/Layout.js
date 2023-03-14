@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import MarketWindow from "../MarketWindow/MarketWindow";
 import Header from "./Header";
-import Routing from "./Routing";
+import Menu from "./Menu";
 
 function Layout() {
 
@@ -9,14 +10,12 @@ function Layout() {
     <div className="container-fluid">
       <div className="row h-100">
         <div className="col-md-2 side-bar">
-        <Header path="/*" />
+        <Header />
         </div>
         <div className="col">
-          {/* need review of React v18 */}
+          <Menu />
+          <MarketWindow />
 
-          <Routes>
-            <Route element={<Routing />}/>
-          </Routes>
 
         </div>
       </div>

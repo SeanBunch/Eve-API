@@ -4,12 +4,12 @@ function Header() {
 
     return (
         <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header"> */}
           <p>
             Eve Market API
           </p>
           
-        </header>
+        {/* </header> */}
       </div>
     )
 }
