@@ -16,7 +16,10 @@ function MarketWindow() {
           </div>
           <div className="col">
             <Tabs />
+            <br/>
             <SellWindow />
+            <br/>
+
             <BuyWindow />
           </div>
         </div>
