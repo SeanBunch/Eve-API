@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function Menu() {
   return (
     <div>
-      heyy
       <nav className="navbar navbar-dark align-items-start p-0">
         <div className="container-fluid d-flex flex-column p-0">
           <Link
@@ -12,7 +11,7 @@ function Menu() {
             to="/"
           >
             <div className="sidebar-brand-text mx-3">
-              <span>Periodic Tables</span>
+              <span>MENU</span>
             </div>
           </Link>
           <hr className="sidebar-divider my-0" />
@@ -26,13 +25,13 @@ function Menu() {
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 <span className="oi oi-magnifying-glass" />
-                Search
+                ISK donations
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 <span className="oi oi-plus" />
-                New Reservation
+                One time ISK fee 
               </Link>
             </li>
             <li className="nav-item">
