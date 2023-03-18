@@ -6,12 +6,13 @@ function list() {
 
 }
 
-function search(itemName) {
+function search(item_name) {
     return knex("typeid_list")
     .whereRaw()
     .orderBy("item_name")
 }
 
 module.exports = {
+    search,
     list,
 }

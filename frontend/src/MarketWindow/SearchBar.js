@@ -1,13 +1,29 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
+import { getItemId } from "../Utilities/API";
+
 
 function SearchBar() {
-  const [searchValue, setSearchValue] = useState("");
+  const [ searchValue, setSearchValue ] = useState("");
+  const [ searchResults, setSearchResults ] = useState([]);
 
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
     console.log(searchValue);
   };
+
+  const clickHandler = (event) => {
+    event.preventDefault()
+    const abortController = new AbortController()
+
+    async function getId () {
+      const response = await getItemId(searchValue, abortController.signal)
+      setSearchResults(response);
+      console.log(searchResults);
+
+    }
+
+  }
 
   return (
     <div>
@@ -31,9 +47,10 @@ function SearchBar() {
           onChange={changeHandler}
           value={searchValue}
         />
+        <button className="btn btn-secondary" onClick={clickHandler}>Search</button>
       </div>
       <br/>
-      <ItemList string={searchValue} />
+      <ItemList searchResults={searchResults} />
     </div>
   );
 }

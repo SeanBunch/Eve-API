@@ -21,7 +21,8 @@ npm install in the frontend and backend directories. npm run dev for nodemon bac
 
 ## Currently working on:
 
-I am working with different ways to querry data from a csv file. I used csvtojson library and then wrote a function to create an array of objects from the csv file. keys="item name" and value=typeid. (I hope this data structure makes sense later <0_0>). 
+I am working with different ways to querry data from a csv file. I used csvtojson library and then wrote a function to create an array of objects from the csv file. keys="item name" and value=typeid. (I hope this data structure makes sense later <0_0>).
+
 
 # update 2/13/2023:
  I think I learned that by useing this method I can only seed my PostgreSQL database through Knex with an array.length of aprox 20,000. So I ran the seed several times each time with a different slice of the array. The array is created from [dataArr.js](/src/dataArr.js). My complete array.length is aprox 44,000+. Running the seed 3 times with different slices can cause human error in the data entry. If the slices are not done correctly it could cause data to be missing for sure and maybe overlap/duplicates. So I am looking for a better way. 
@@ -32,6 +33,11 @@ I wonder if the "fs" library could write all of the data to a new file from the 
 
 # update 3/15/2023:
 I started getting html elements going and new container components for the page. 
+
+# update 3/18/2023
+
+Working on logic for search input. When user inputs a string to the search input I need to match the string from the user to an item ID. To do this I will try to clean the string data and search the SQL database for a match. If match is found then I want to return the value from the database of the itemID. Once the itemID is selected an API call can be made to the EVE API for the market data on that item.  
+
 
 
 

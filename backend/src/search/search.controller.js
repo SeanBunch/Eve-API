@@ -17,8 +17,18 @@ function list(req, res, next) {
 
 function read(req, res, next) {
 
-res.json({data: `param coming soon ${req.params.itemName}`})
 
+}
+
+function findItemId(req, res, next) {
+    const itemStr = req.params.item_name
+
+}
+async function search() {
+    const itemStr = req.query.item_name;
+    const data = await service.find(itemStr)
+
+    res.json({ data })
 }
 
 
@@ -28,4 +38,5 @@ res.json({data: `param coming soon ${req.params.itemName}`})
 module.exports = {
     list,
     read,
+    search: [findItemId, search],
 }
