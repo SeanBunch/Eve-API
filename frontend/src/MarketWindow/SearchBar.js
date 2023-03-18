@@ -9,7 +9,7 @@ function SearchBar() {
 
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
-    console.log(searchValue);
+    // console.log(searchValue);
   };
 
   const clickHandler = (event) => {
@@ -22,6 +22,7 @@ function SearchBar() {
       console.log(searchResults);
 
     }
+    getId()
 
   }
 

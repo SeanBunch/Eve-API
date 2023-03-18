@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
 const headers = new Headers()
 headers.append("Content-Type", "application/json")
@@ -27,7 +27,7 @@ async function fetchJson(url, options, onCancel) {
   }
 }
 
-export async function getItemId(itemName, signal) {
-    const url = `${API_BASE_URL}/searchRequest/${itemName}`
-    return await fetchJson(url, {headers, signal }, [])
+export async function getItemId(searchValue, signal) {
+    const url = `${API_BASE_URL}/search/${searchValue}`
+    return await fetchJson(url, { headers, signal }, [])
 }
