@@ -36,9 +36,10 @@ I started getting html elements going and new container components for the page.
 
 # update 3/18/2023
 
-Working on logic for search input. When user inputs a string to the search input I need to match the string from the user to an item ID. To do this I will try to clean the string data and search the SQL database for a match. If match is found then I want to return the value from the database of the itemID. Once the itemID is selected an API call can be made to the EVE API for the market data on that item.  
+1. Working on logic for search input. When user inputs a string to the search input I need to match the string from the user to an item ID. To do this I will try to clean the string data and search the SQL database for a match. If match is found then I want to return the value from the database of the itemID. Once the itemID is selected an API call can be made to the EVE API for the market data on that item.  
 
-
+2. Added error handling and started working on api.
+ No search logic just yet but geting the api plugged in then the search logic. I think search logic will be handled in the SQL query. So first I need the onClick/submit to make an API call to my server with the data from the user input and then the search logic (I think in SQL) once I have the user input data routed and passed to the server.
 
 
 ## Mmm...
