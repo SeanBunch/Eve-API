@@ -5,7 +5,7 @@ import { getItemId } from "../Utilities/API";
 
 function SearchBar() {
   const [ searchValue, setSearchValue ] = useState("");
-  const [ searchResults, setSearchResults ] = useState([]);
+  const [ searchResults, setSearchResults ] = useState("");
 
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
@@ -19,7 +19,7 @@ function SearchBar() {
     async function getId () {
       const response = await getItemId(searchValue, abortController.signal)
       setSearchResults(response);
-      console.log(searchResults);
+      console.log(response);
 
     }
     getId()

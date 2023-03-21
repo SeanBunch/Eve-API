@@ -7,9 +7,11 @@ function list() {
 }
 
 function search(item_name) {
+
+console.log("service file reached, search made. item_name:", item_name)
     return knex("typeid_list")
-    .whereRaw()
-    .orderBy("item_name")
+    .whereLike('item_name', 'like', `%${item_name}%`)
+    .select("type_id")
 }
 
 module.exports = {

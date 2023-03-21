@@ -1,16 +1,17 @@
-const express = require("express")
-const searchRouter = require("../search/search.router")
-// const cors = require("cors")
+const express = require("express");
+const searchRouter = require("../search/search.router");
+const cors = require("cors")
+
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-// app.use(cors())
 app.use("/search", searchRouter)
 
 app.use("/", (req, res, next) => {
     res.json({ data: "EVE APP"})
 })
-
 
 
 

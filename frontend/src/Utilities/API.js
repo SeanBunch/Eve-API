@@ -28,6 +28,6 @@ async function fetchJson(url, options, onCancel) {
 }
 
 export async function getItemId(searchValue, signal) {
-    const url = `${API_BASE_URL}/search/${searchValue}`
+  const url = `${API_BASE_URL}/search/${searchValue}`
     return await fetchJson(url, { headers, signal }, [])
 }
