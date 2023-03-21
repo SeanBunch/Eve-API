@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
-function ItemList({ string }) {
+function ItemList({ searchResults }) {
 
-    // need api call to search database with user input string data
-
-
+// loop through search results from parent component <SearchBar/> and when the name is clicked do the APi call to get price. 
+console.log("searchresults from itemList:", searchResults)
   return (
     <div className="border border-secondary">
       <h4>Item List goes below</h4>
 
       <div>
-        example:
         <ul>
-          <li>item 1</li>
-          {/* when item is clicked the Sell Window and the Buy Window needs to poplate with data of the item being clicked on */}
-          <li>item 2</li>
-          <li>item 3</li>
+        {searchResults.map((item)=> {
+         return <li className="list-group-item-dark" >
+            {item.item_name}
+          </li>
+        })
+        }
         </ul>
       </div>
-      <div>string: {string}</div>
+      <div>string: </div>
     </div>
   );
 }

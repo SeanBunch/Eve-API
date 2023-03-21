@@ -15,9 +15,6 @@ async function search(req, res, next) {
   const searchValue = req.params.item_name;
   const data =  await service.search(searchValue)
   
-  // const { item_name } = req.query
-  // const data =  service.search({ item_name })
-  // const data =  req
 
   console.log("controller reached here is req:", data);
   res.json({ data });

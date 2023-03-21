@@ -13,10 +13,11 @@ npm install in the frontend and backend directories. npm run dev for nodemon bac
 
 ## ToDos:
 
-1. Make Express server. <---------finished
-2. Work with data until I can run search queries to find typeid number in the data. <-------currently working on
-3. Develop API 
-4. Build React frontend <------ Started work on getting html elements and components started
+1. Add middleware for search input field. Check for data type string, limit string length that can be in the input field, perhaps formate the input string to lowerCase() and make sure the serach can handle odd characters and sybomls, or maybe decide to disable the users ability to enter symbols. Not sure what I need but these are some things I am thinking about.
+
+2. Created a limited sized window for the item list and use a scrolling window to display search results. This same idea needs to be used in sellers window and the buyers window. Maybe think about resizable windows for the item list, sellers window, and the buyers window to give control of window sizes to the user. 
+
+3. When the user clicks on a item name in the item list the app then needs to make an api call and display the data in the sellers window and the buyers window. 
 
 
 ## Currently working on:
@@ -40,6 +41,10 @@ I started getting html elements going and new container components for the page.
 
 2. Added error handling and started working on api.
  No search logic just yet but geting the api plugged in then the search logic. I think search logic will be handled in the SQL query. So first I need the onClick/submit to make an API call to my server with the data from the user input and then the search logic (I think in SQL) once I have the user input data routed and passed to the server.
+
+ # update 3/20/2023
+
+ Now app will take user input and make an SQL querry on the database and list the results in the item list. I want to create a limited sized window and a scroll bar to review search results. When the user clicks an item name form the item list an API call for that item need to be made and the reuslts displayed on the buyers window and seller window. 
 
 
 ## Mmm...
