@@ -6,11 +6,11 @@ function list() {
 
 }
 
-function search(item_name) {
+function search(searchValue) {
 
-console.log("service file reached, search made. item_name:", item_name)
+console.log("service file reached, search made. item_name:", searchValue)
     return knex("typeid_list")
-    .whereLike('item_name', 'like', `%${item_name}%`)
+    .where('item_name', 'like', `%${searchValue}%`)
     .select("type_id")
 }
 
