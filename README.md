@@ -46,6 +46,12 @@ I started getting html elements going and new container components for the page.
 
  Now app will take user input and make an SQL querry on the database and list the results in the item list. I want to create a limited sized window and a scroll bar to review search results. When the user clicks an item name form the item list an API call for that item need to be made and the reuslts displayed on the buyers window and seller window. 
 
+ # update 3/21/2023
+
+ 1. I updated the ItemList component to allow the user to search the data base for items via an input field. The user is able to click on the text in the Search Results list and the app will fetch the market data for the item that was clicked. 
+
+ 2. Next I need to organize the code so that the market data that is returned via the API call for the item that the user clicks on is displayed in the sellers window and the buyers window. For now when the user clicks on an item from the Search Results list the data returned from the api call is saved to a useState variable in the ItemList component. 
+
 
 ## Mmm...
 What might be the performance impact of these 2 different ways be? 
