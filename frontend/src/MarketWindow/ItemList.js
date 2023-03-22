@@ -25,6 +25,7 @@ function ItemList({ searchResults }) {
     event.preventDefault();
     const typeId = event.target.value;
     setItemSelected(typeId);
+    console.log("MarketData from clickable list:", marketData)
   };
 
   // loop through search results from parent component <SearchBar/> and when the name is clicked do the APi call to get price.

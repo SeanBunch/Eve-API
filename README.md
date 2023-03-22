@@ -19,6 +19,8 @@ npm install in the frontend and backend directories. npm run dev for nodemon bac
 
 3. When the user clicks on a item name in the item list the app then needs to make an api call and display the data in the sellers window and the buyers window. 
 
+4. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implimented that enable safe and highly effective search results form user. The user may not need to search the search results if search results are accuatley finding the users request.  
+
 
 ## Currently working on:
 
@@ -48,7 +50,7 @@ I started getting html elements going and new container components for the page.
 
  # update 3/21/2023
 
- 1. I updated the ItemList component to allow the user to search the data base for items via an input field. The user is able to click on the text in the Search Results list and the app will fetch the market data for the item that was clicked. 
+ 1. I updated the ItemList component to allow the user to search the data base for items via an input field. The user is able to click on the text in the Search Results list and the app will fetch the market data for the item that was clicked. Also I was able to get a scrollable window for the long list of search results. 
 
  2. Next I need to organize the code so that the market data that is returned via the API call for the item that the user clicks on is displayed in the sellers window and the buyers window. For now when the user clicks on an item from the Search Results list the data returned from the api call is saved to a useState variable in the ItemList component. 
 
