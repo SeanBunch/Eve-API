@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from "react";
 
-function ItemList({ searchResults }) {
-  const [marketData, setMarketData] = useState({});
-  const [itemSelected, setItemSelected] = useState("");
+function ItemList({ searchResults, setItem }) {
+  // ================Code moved==========================
+  // ======Code below moved up to MarketWIndow.js =========
+  // =======================================================
+  // const [marketData, setMarketData] = useState({});
+  // const [itemSelected, setItemSelected] = useState("");
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch(
-          `https://api.evemarketer.com/ec/marketstat/json?typeid=${itemSelected}&usesystem=30000142`
-        );
-        const apiData = await response.json();
+  // useEffect(() => {
+  //   async function getData() {
+  //     try {
+  //       const response = await fetch(
+  //         `https://api.evemarketer.com/ec/marketstat/json?typeid=${itemSelected}&usesystem=30000142`
+  //       );
+  //       const apiData = await response.json();
 
-        setMarketData(apiData[0]);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
+  //       setMarketData(apiData[0]);
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   }
 
-    getData();
-  }, [itemSelected]);
+  //   getData();
+  // }, [itemSelected]);
+  // =======================================================
+  // =======================================================
+  // =======================================================
+
 
   const clickHandler = (event) => {
     event.preventDefault();
     const typeId = event.target.value;
-    setItemSelected(typeId);
-    console.log("MarketData from clickable list:", marketData)
+    setItem(typeId);
   };
 
   // loop through search results from parent component <SearchBar/> and when the name is clicked do the APi call to get price.

@@ -3,13 +3,12 @@ import ItemList from "./ItemList";
 import { getItemId } from "../Utilities/API";
 
 
-function SearchBar() {
+function SearchBar({ setItem }) {
   const [ searchValue, setSearchValue ] = useState("");
   const [ searchResults, setSearchResults ] = useState([]);
 
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
-    // console.log(searchValue);
   };
 
   const clickHandler = (event) => {
@@ -19,11 +18,9 @@ function SearchBar() {
     async function getId () {
       const response = await getItemId(searchValue, abortController.signal)
       setSearchResults(response);
-      console.log(response);
-
     }
+    
     getId()
-
   }
 
   return (
@@ -51,7 +48,7 @@ function SearchBar() {
         <button className="btn btn-secondary" onClick={clickHandler}>Search</button>
       </div>
       <br/>
-      <ItemList searchResults={searchResults} />
+      <ItemList searchResults={searchResults} setItem={setItem} />
     </div>
   );
 }

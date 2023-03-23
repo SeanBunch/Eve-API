@@ -1,6 +1,8 @@
 import React from "react";
 
-function SellWindow() {
+function SellWindow({ marketData }) {
+    console.log("sellwindow marketData:", marketData.sell)
+
     return(
         <div className="border border-secondary">
             <h6>
@@ -12,7 +14,7 @@ function SellWindow() {
                    <tr>
                 <th>sortable columns in sellers window</th>
                </tr>
-               <tr><td>Jumps | Quantity | Price | Location | Expires in</td></tr>
+               <tr><td>Jumps | Quantity | {} | Location | Expires in</td></tr>
                <tr><td>Jumps | Quantity | Price | Location | Expires in</td></tr>
                <tr><td>Jumps | Quantity | Price | Location | Expires in</td></tr> 
                 </tbody>

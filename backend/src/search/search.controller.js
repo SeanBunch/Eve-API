@@ -14,9 +14,7 @@ function list(req, res, next) {
 async function search(req, res, next) {
   const searchValue = req.params.item_name;
   const data =  await service.search(searchValue)
-  
 
-  console.log("controller reached here is req:", data);
   res.json({ data });
 }
 
