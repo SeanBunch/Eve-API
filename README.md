@@ -63,7 +63,7 @@ I started getting html elements going and new container components for the page.
 
  # update 3/23/2023
 
- Commit made to move useEffects up into parent component. This way the data fetched can passed down into MarketWindow components. 
+ Commit made to move useEffects up into parent component. This way the data fetched can be passed down into MarketWindow components. 
 
 
 ## Mmm...
