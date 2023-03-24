@@ -61,6 +61,10 @@ I started getting html elements going and new container components for the page.
 
  2. Next I need to organize the code so that the market data that is returned via the API call for the item that the user clicks on is displayed in the seller’s window and the buyer’s window. For now, when the user clicks on an item from the Search Results list the data returned from the api call is saved to a useState variable in the ItemList component. 
 
+ # update 3/23/2023
+
+ Commit made to move useEffects up into parent component. This way the data fetched can passed down into MarketWindow components. 
+
 
 ## Mmm...
 What might be the performance impact of these 2 different ways be? 
