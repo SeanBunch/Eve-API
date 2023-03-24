@@ -1,38 +1,42 @@
 # Eve Online video game API 
 
-A market price look up tool for Eve Online. This works by untilizing Eve Online's APIs to fetch real time market prices of in game items. Although there are several popular Eve Market sites that perform this fucntion I want to build one with a better UI that more closely matches that of the in game market UI shown Below.
+A market price look up tool for Eve Online. This works by utilizing Eve Online's APIs to fetch real time market prices of in game items. Although there are several popular Eve Market sites that perform this function, I want to build one with a better UI that more closely matches that of the in-game market UI shown Below.
 
-TechStack: React.js frontend, and Express.js backend, PostgreSQL database, Bootstrap, CSS. 
+Tech Stack: React.js frontend, and Express.js backend, PostgreSQL database, Bootstrap, CSS. 
 
 ## Intallation 
 
 npm install in the frontend and backend directories. npm run dev for nodemon backend and npm start for frontend. The frontend API is not yet developed. 
 
+## In Game UI Screenshot
 
-  ![Eve market](/EveMarket_pic.PNG)
+Below is a screenshot of what the in game ui looks like:
+
+  ![Eve market](/inGameMarket_pic.PNG)
 
 ## ToDos:
 
-1. Add middleware for search input field. Check for data type string, limit string length that can be in the input field, perhaps formate the input string to lowerCase() and make sure the serach can handle odd characters and sybomls, or maybe decide to disable the users ability to enter symbols. Not sure what I need but these are some things I am thinking about.
+1. Add middleware for search input field. Check for data type string, limit string length that can be in the input field, perhaps format the input string to lowerCase() and make sure the search can handle odd characters and symbols, or maybe decide to disable the users ability to enter symbols. Not sure what I need but these are some things I am thinking about.
 
-2. Created a limited sized window for the item list and use a scrolling window to display search results. This same idea needs to be used in sellers window and the buyers window. Maybe think about resizable windows for the item list, sellers window, and the buyers window to give control of window sizes to the user. 
+2. Created a limited sized window for the item list and use a scrolling window to display search results. This same idea needs to be used in sellers window and the buyer’s window. Maybe think about resizable windows for the item list, sellers window, and the buyers window to give control of window sizes to the user. 
 
-3. When the user clicks on a item name in the item list the app then needs to make an api call and display the data in the sellers window and the buyers window. 
+3. When the user clicks on an item name in the item list the app then needs to make an api call and display the data in the seller’s window and the buyers window. 
 
-4. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implimented that enable safe and highly effective search results form user. The user may not need to search the search results if search results are accuatley finding the users request.  
+4. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implemented that enable safe and highly effective search results from user. The user may not need to search the search results if search results are accurately finding the user’s request. 
 
 
 ## Currently working on:
 
-I am working with different ways to querry data from a csv file. I used csvtojson library and then wrote a function to create an array of objects from the csv file. keys="item name" and value=typeid. (I hope this data structure makes sense later <0_0>).
+I am working with different ways to query data from a csv file. I used csvtojson library and then wrote a function to create an array of objects from the csv file. keys="item name" and value=typeid. (I hope this data structure makes sense later <0_0>).
 
 
 # update 2/13/2023:
- I think I learned that by useing this method I can only seed my PostgreSQL database through Knex with an array.length of aprox 20,000. So I ran the seed several times each time with a different slice of the array. The array is created from [dataArr.js](/backend/src/dataArr.js). My complete array.length is aprox 44,000+. Running the seed 3 times with different slices can cause human error in the data entry. If the slices are not done correctly it could cause data to be missing for sure and maybe overlap/duplicates. So I am looking for a better way. 
+I think I learned that by using this method I can only seed my PostgreSQL database through Knex with an array.length of approx. 20,000. So I ran the seed several times each time with a different slice of the array. The array is created from [dataArr.js](/backend/src/dataArr.js). My complete array.length is approx. 44,000+. Running the seed 3 times with different slices can cause human error in the data entry. If the slices are not done correctly, it could cause data to be missing for sure and maybe overlap/duplicates. So, I am looking for a better way. 
 
-Currently I have successfully seeded the PostgreSQL database with most of the data but I found that I am missing 2 or 3 items. This was caused by my array slices being off by 1 each time I ran the seed. .slice(0, 3) <---does not include 3 so when I ran the second seed I would have incorrectly used .slice(3, 5). This skips array[3] I can re-run the seeds with careful attention to the slice, however I am looking for a better way.
+Currently I have successfully seeded the PostgreSQL database with most of the data, but I found that I am missing 2 or 3 items. This was caused by my array slices being off by 1 each time I ran the seed. .slice(0, 3) <---does not include 3 so when I ran the second seed I would have incorrectly used .slice(3, 5). This skips array[3] I can re-run the seeds with careful attention to the slice, however I am looking for a better way.
 
-I wonder if the "fs" library could write all of the data to a new file from the csv. Then the data would be in the applicaiton and I could run search algorithms on the local file instead of making API calls to the database. 
+I wonder if the "fs" library could write all the data to a new file from the csv. Then the data would be in the application, and I could run search algorithms on the local file instead of making API calls to the database.
+
 
 # update 3/15/2023:
 I started getting html elements going and new container components for the page. 
@@ -42,20 +46,23 @@ I started getting html elements going and new container components for the page.
 1. Working on logic for search input. When user inputs a string to the search input I need to match the string from the user to an item ID. To do this I will try to clean the string data and search the SQL database for a match. If match is found then I want to return the value from the database of the itemID. Once the itemID is selected an API call can be made to the EVE API for the market data on that item.  
 
 2. Added error handling and started working on api.
- No search logic just yet but geting the api plugged in then the search logic. I think search logic will be handled in the SQL query. So first I need the onClick/submit to make an API call to my server with the data from the user input and then the search logic (I think in SQL) once I have the user input data routed and passed to the server.
+ No search logic just yet but getting the api plugged in then the search logic. I think search logic will be handled in the SQL query. So first I need the onClick/submit to make an API call to my server with the data from the user input and then the search logic (I think in SQL) once I have the user input data routed and passed to the server.
+
+ ![Eve App](/EveApp_pic.PNG)
+
 
  # update 3/20/2023
 
- Now app will take user input and make an SQL querry on the database and list the results in the item list. I want to create a limited sized window and a scroll bar to review search results. When the user clicks an item name form the item list an API call for that item need to be made and the reuslts displayed on the buyers window and seller window. 
+ Now app will take user input and make an SQL query on the database and list the results in the item list. I want to create a limited sized window and a scroll bar to review search results. When the user clicks an item name form the item list an API call for that item need to be made and the results displayed on the buyer’s window and seller window.
 
  # update 3/21/2023
 
- 1. I updated the ItemList component to allow the user to search the data base for items via an input field. The user is able to click on the text in the Search Results list and the app will fetch the market data for the item that was clicked. Also I was able to get a scrollable window for the long list of search results. 
+ 1. I updated the ItemList component to allow the user to search the data base for items via an input field. The user is able to click on the text in the Search Results list and the app will fetch the market data for the item that was clicked. Also, I was able to get a scrollable window for the long list of search results. 
 
- 2. Next I need to organize the code so that the market data that is returned via the API call for the item that the user clicks on is displayed in the sellers window and the buyers window. For now when the user clicks on an item from the Search Results list the data returned from the api call is saved to a useState variable in the ItemList component. 
+ 2. Next I need to organize the code so that the market data that is returned via the API call for the item that the user clicks on is displayed in the seller’s window and the buyer’s window. For now, when the user clicks on an item from the Search Results list the data returned from the api call is saved to a useState variable in the ItemList component. 
 
 
 ## Mmm...
 What might be the performance impact of these 2 different ways be? 
 How would updating data be different/possible?
-I think having the data in a database is better than a local file but these questions are interesting to find out. 
+I think having the data in a database is better than a local file, but these questions are interesting to find out. 
