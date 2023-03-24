@@ -12,7 +12,7 @@ npm install in the frontend and backend directories. npm run dev for nodemon bac
 
 Below is a screenshot of what the in game ui looks like:
 
-  ![Eve market](/inGameMarket_pic.PNG)
+  ![Eve market](/frontend/screenshots/inGameMarket_pic.PNG)
 
 ## ToDos:
 
@@ -48,7 +48,7 @@ I started getting html elements going and new container components for the page.
 2. Added error handling and started working on api.
  No search logic just yet but getting the api plugged in then the search logic. I think search logic will be handled in the SQL query. So first I need the onClick/submit to make an API call to my server with the data from the user input and then the search logic (I think in SQL) once I have the user input data routed and passed to the server.
 
- ![Eve App](/EveApp_pic.PNG)
+ ![Eve App](/frontend/screenshots/EveApp_pic.PNG)
 
 
  # update 3/20/2023
@@ -64,6 +64,10 @@ I started getting html elements going and new container components for the page.
  # update 3/23/2023
 
  Commit made to move useEffects up into parent component. This way the data fetched can be passed down into MarketWindow components. 
+
+ # update 3/24/2023 
+
+I found out the API I was first using is not the best one and is limited. I have discovered a much more robust API that has large and detailed documentation with a dedicated developer team from the game that works on this API. There is even a slack channel for developers who want to build application using the API. ESI is the Eve Swagger Interface that is running on a Kubernates cluster. I will be spending time to get up to speed on the very large number of endpoints and look at implementing authorization for my app. This will enable users to log into the app with their credentials from the game and gain access to their in-game account data. Today I will update my Microsoft word document journal that I have been working from to develop this app. I have some research to do and some notes to take before I can implement these new features. So not much new code will be written today as I want to use the more robust endpoints for my application right away. 
 
 
 ## Mmm...

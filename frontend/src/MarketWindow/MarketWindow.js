@@ -17,6 +17,7 @@ function MarketWindow() {
         const response = await fetch(
           `https://api.evemarketer.com/ec/marketstat/json?typeid=${itemSelected}&usesystem=30000142`
         );
+        // const esiUrl = `https://esi.evetech.net/latest/markets/10000002/orders/?datasource=tranquility&order_type=all&page=1`
         const apiData = await response.json();
 
         setMarketData(apiData[0]);
