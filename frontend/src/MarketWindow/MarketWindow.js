@@ -5,30 +5,48 @@ import SellWindow from "./SellWindow";
 import Tabs from "./Tabs";
 
 function MarketWindow() {
-  const [marketData, setMarketData] = useState({
-    buy:{avg: 0}, 
-    sell:{avg: 0}
-  });
-  const [itemSelected, setItemSelected] = useState("");
+  const [marketData, setMarketData] = useState([]);
+  const [itemSelected, setItemSelected] = useState(0);
+
+
+  // useEffect(() => {
+  //   async function getData() {
+  //     try {
+  //       const response = await fetch(
+  //         `https://api.evemarketer.com/ec/marketstat/json?typeid=${itemSelected}&usesystem=30000142`
+  //       );
+  //       const apiData = await response.json();
+
+  //       setMarketData(apiData[0]);
+  //       // console.log("here is your market data:", marketData)
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   }
+
+  //   getData();
+  // }, [itemSelected]);
 
   useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch(
-          `https://api.evemarketer.com/ec/marketstat/json?typeid=${itemSelected}&usesystem=30000142`
-        );
-        // const esiUrl = `https://esi.evetech.net/latest/markets/10000002/orders/?datasource=tranquility&order_type=all&page=1`
-        const apiData = await response.json();
 
-        setMarketData(apiData[0]);
-        console.log("here is your market data:", marketData)
+    async function getMarketESI() {
+      try {
+        const response = await fetch(`https://esi.evetech.net/latest/markets/10000002/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`)
+
+        const dataESI = await response.json()
+
+        setMarketData(dataESI)
+        console.log("dataESI:", dataESI)
+        console.log("marketESI:", marketData)
+
+
       } catch (error) {
-        console.error(error.message);
+        console.error(error.message)
       }
     }
+    getMarketESI()
 
-    getData();
-  }, [itemSelected]);
+  }, [itemSelected])
 
 
   return (
