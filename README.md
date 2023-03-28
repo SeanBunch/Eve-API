@@ -18,9 +18,11 @@ Below is a screenshot of what the in game ui looks like:
 
 1. Add middleware for search input field. Check for data type string, limit string length that can be in the input field, perhaps format the input string to lowerCase() and make sure the search can handle odd characters and symbols, or maybe decide to disable the users ability to enter symbols. Not sure what I need but these are some things I am thinking about.
 
-2. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implemented that enable safe and highly effective search results from user. The user may not need to search the search results if search results are accurately finding the user’s request. 
+2. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implemented that enable safe and effective search results from user. The user may not need to search the search results if search results are accurately finding the user’s request. 
 
 3. Learn how to create sortable columns in React. When the ESI/API responds with data I want that data to be displayed in the seller's / buyer's window in such a way the user can sort the data by price, quantity, or any column the user decides. 
+
+4. Add to the Tabs component a display of the currently selected item. Display item name at first, later dispaly item icon.
 
 
 ## UPDATES:
