@@ -78,3 +78,9 @@ I started getting html elements going and new container components for the page.
 # update 3/27/2023:
 
 1. I spent time learning how to create sortable columns. I got the seller's window to display the data from the ESI when the user clicks on the item in the search results and get the component to render in a scrollable window. But now I want to allow the user to sort the data in seller's window by price, quanitity, or by any column in the list of data.
+
+# update 3/28/2023
+
+1. I spent time learing about how to create a sortable columns, and I attempted to implement the sortable columns. I am close in at least one way to complete the task. I have written the sorting logic but I need a way to get the array of data into the useState() for what I have. This would allow me to conintue down the path I am on right now. Another way is to look at using a useCallback hook to sort the data. Tomarrow I will try to complete the path I am on, otherwise I will work on implementing a useCallback hook to call the sorting function when the user clicks the top of the column. 
+
+2. I used < table > elements instead of ul li but now I need to change the bootstrap to make a scrollable window for the table. 
