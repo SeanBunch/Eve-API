@@ -2,9 +2,7 @@ import React, { useMemo, useState } from "react";
 
 function SellWindow({ marketData = [] }) {
 
-    // I think here will go the useCallback to sort the data in the window.
 
-    // since marketData is an array of objects and the data I need to sort is an array that is created by the .map() I need to maybe think about how to get the const data to be that array. Or maybe I can look to useing a useCallback function. Not sure yet but I am close. 
 
 const  tableData  = marketData
 const [ sortedField, setSortedField ] = useState(null)
