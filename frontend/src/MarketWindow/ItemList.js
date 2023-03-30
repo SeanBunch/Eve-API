@@ -44,7 +44,6 @@ function ItemList({ searchResults, setItem }) {
         <ul className="overflow-auto" style={{ height: "500px" }}>
           {searchResults.map((item) => {
             return (
-              // console.log(item)
               <li
                 key={item.key}
                 className="list-group-item-dark list-unstyled"

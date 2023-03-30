@@ -17,8 +17,8 @@ function MarketWindow() {
         const dataESI = await response.json()
 
         setMarketData(dataESI)
-        console.log("dataESI:", dataESI)
-        console.log("marketESI:", marketData)
+        // console.log("dataESI:", dataESI)
+        // console.log("marketESI:", marketData)
 
 
       } catch (error) {
