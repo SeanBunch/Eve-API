@@ -45,7 +45,7 @@ function ItemList({ searchResults, setItem }) {
           {searchResults.map((item) => {
             return (
               <li
-                key={item.key}
+                key={item.type_id}
                 className="list-group-item-dark list-unstyled"
                 onClick={clickHandler}
                 value={item.type_id}

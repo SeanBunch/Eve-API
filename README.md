@@ -90,3 +90,9 @@ I started getting html elements going and new container components for the page.
 1. I have developed a few different ways to sort the columns but have not yet figured this problem out. This is the first table sort I have ever implemented I am close. 
 
 2. Also need to configure bootstrap to enable scrollable < table > elements. 
+
+# update 3/30/2023
+
+1. I was able to solve the sorting feature! I was able to figure it out and I implemented the algorithm and necessary syntax to implement a sortable HTML < table >. The algorithm first written in the SellWindow.js component is dynamic in that I only needed to write the algo once and the app will use the same block of code for all the numbered columns. I will try to achieve the same feature with useMemo() so that my application will have better performance. 
+
+2. I copied the sorting feature into the BuyWindow.js component.
