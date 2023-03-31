@@ -100,3 +100,5 @@ I started getting html elements going and new container components for the page.
 3. I was able to get the tables to be scrollable with sticky headers. 
 
 4. I will begin to work on the logic for the other columns. "Expires in" is the total length of time the item has been allocated to be on the market. To find remaining time left, aka the “Expires in”, I need to take the item time stamp and calculate remaining time left on the item. This will be done by taking the difference between the time stamp of the item being first placed on the market and today’s current time to find total time elapsed so far. Then subtract current elapsed time from the total allocated time for the item to be on the market. This will produced the correct “Expires in” value need for the “expires in” column. 
+
+5. Need to connect the Location drop down to the api call so that user can find prices of items in differnet locaitons. 
