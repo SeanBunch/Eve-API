@@ -95,4 +95,8 @@ I started getting html elements going and new container components for the page.
 
 1. I was able to solve the sorting feature! I was able to figure it out and I implemented the algorithm and necessary syntax to implement a sortable HTML < table >. The algorithm first written in the SellWindow.js component is dynamic in that I only needed to write the algo once and the app will use the same block of code for all the numbered columns. I will try to achieve the same feature with useMemo() so that my application will have better performance. 
 
-2. I copied the sorting feature into the BuyWindow.js component.
+2. To create code that is DRY I will think about where I can move the sorting algorithm and pass it as a prop into the components. MarketWindow.js component is the first choice. 
+
+3. I was able to get the tables to be scrollable with sticky headers. 
+
+4. I will begin to work on the logic for the other columns. "Expires in" is the total length of time the item has been allocated to be on the market. To find remaining time left, aka the “Expires in”, I need to take the item time stamp and calculate remaining time left on the item. This will be done by taking the difference between the time stamp of the item being first placed on the market and today’s current time to find total time elapsed so far. Then subtract current elapsed time from the total allocated time for the item to be on the market. This will produced the correct “Expires in” value need for the “expires in” column. 

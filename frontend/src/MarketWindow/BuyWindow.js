@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../App.css"
 
 function BuyWindow({ marketData }) {
   const [order, setOrder] = useState("ascending");
@@ -6,23 +7,21 @@ function BuyWindow({ marketData }) {
 
   const sorting = (col) => {
     if (order === "ascending") {
-      const sorted = [...marketData].sort((a, b) => (a[col] < b[col] ? 1 : -1));
-      setData(sorted);
+      const sorted = marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
       setOrder("decending");
     }
     if (order === "decending") {
-      const sorted = [...marketData].sort((a, b) => (a[col] > b[col] ? 1 : -1));
-      setData(sorted);
+      const sorted = marketData.sort((a, b) => (a[col] > b[col] ? 1 : -1));
       setOrder("ascending");
     }
   };
 
   return (
     <div className="container tbl-container border border-secondary">
-      <div className="row tbl fixtable-responsive overflow-auto">
         <h5>Buyer's Window</h5>
-        <table className="table table-bordered table-dark table-sm">
-          <thead>
+      <div className="row tbl fixtable-responsive scrollable">
+        <table className="table table-bordered table-dark table-sm market-table">
+          <thead className="sticky">
             <tr>
               <th>Jumps</th>
               <th onClick={() => sorting("volume_remain")}>Quantity</th>
@@ -32,7 +31,7 @@ function BuyWindow({ marketData }) {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => {
+            {marketData.map((item) => {
               return (
                 <tr key={item.order_id}>
                   {item.is_buy_order ? (
