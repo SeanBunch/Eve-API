@@ -102,3 +102,9 @@ I started getting html elements going and new container components for the page.
 4. I will begin to work on the logic for the other columns. "Expires in" is the total length of time the item has been allocated to be on the market. To find remaining time left, aka the “Expires in”, I need to take the item time stamp and calculate remaining time left on the item. This will be done by taking the difference between the time stamp of the item being first placed on the market and today’s current time to find total time elapsed so far. Then subtract current elapsed time from the total allocated time for the item to be on the market. This will produced the correct “Expires in” value need for the “expires in” column. 
 
 5. Need to connect the Location drop down to the api call so that user can find prices of items in differnet locaitons. 
+
+# update 3/31/2023
+
+1. I connected the dropped down region / location selector to the api call so now when the user makes a search for an item price it will search in the region that is selected via the drop down selector. Also if the user changes the drop down a new api call will be made and update the seller and buyer window with item prices from the new region selected by the user. 
+
+TODO's: "Expires in" needs to show time remaining, move algorithm from 3/30/2023 num 2 to a parent component so the code is not repeated. 

@@ -7,28 +7,23 @@ import Tabs from "./Tabs";
 function MarketWindow() {
   const [marketData, setMarketData] = useState([]);
   const [itemSelected, setItemSelected] = useState(0);
-  
-  useEffect(() => {
+  const [ region, setRegion ] = useState("10000002")
 
+  console.log(marketData[3], "date():", Date())
+  useEffect(() => {
     async function getMarketESI() {
       try {
-        const response = await fetch(`https://esi.evetech.net/latest/markets/10000002/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`)
+        const response = await fetch(`https://esi.evetech.net/latest/markets/${region}/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`)
 
         const dataESI = await response.json()
-
         setMarketData(dataESI)
-        // console.log("dataESI:", dataESI)
-        // console.log("marketESI:", marketData)
-
 
       } catch (error) {
         console.error(error.message)
       }
     }
     getMarketESI()
-
-  }, [itemSelected])
-
+  }, [itemSelected, region])
 
   return (
     <div>
@@ -37,7 +32,7 @@ function MarketWindow() {
       <div className="container-fluid">
         <div className="row h-100">
           <div className="col-md-2 side-bar">
-            <SearchBar setItem={setItemSelected} />
+            <SearchBar setItem={setItemSelected} setRegion={setRegion} />
           </div>
           <div className="col">
             <Tabs />
