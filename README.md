@@ -107,4 +107,8 @@ I started getting html elements going and new container components for the page.
 
 1. I connected the dropped down region / location selector to the api call so now when the user makes a search for an item price it will search in the region that is selected via the drop down selector. Also if the user changes the drop down a new api call will be made and update the seller and buyer window with item prices from the new region selected by the user. 
 
-TODO's: "Expires in" needs to show time remaining, move algorithm from 3/30/2023 num 2 to a parent component so the code is not repeated. 
+TODO's: "Expires in" needs to show time remaining, move algorithm from 3/30/2023 num 2 to a parent component so the code is not repeated.
+
+# update 4/3/2023
+
+Found above average job postings for my tech stack in my local area and spent extra time working on job applications and networking. 
