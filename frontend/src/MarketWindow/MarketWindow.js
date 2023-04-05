@@ -7,9 +7,21 @@ import Tabs from "./Tabs";
 function MarketWindow() {
   const [marketData, setMarketData] = useState([]);
   const [itemSelected, setItemSelected] = useState(0);
-  const [ region, setRegion ] = useState("10000002")
+  const [ region, setRegion ] = useState("10000002");
 
-  console.log(marketData[3], "date():", Date())
+//   useEffect(() => {
+//     async function dateCompare() {
+//       const currentDate = new Date().getTime();
+//       const issuedDate = new Date(marketData[3].issued).getTime();
+      
+//       const dateDiff = (currentDate - issuedDate) / 86400
+//       console.log("issuedDate:", issuedDate, "currentDate:", currentDate, "dateDiff:", dateDiff);
+//     }
+//     dateCompare()
+
+// }, [marketData])
+
+
   useEffect(() => {
     async function getMarketESI() {
       try {
