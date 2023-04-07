@@ -20,9 +20,9 @@ Below is a screenshot of what the in game ui looks like:
 
 2. Create searchable search results? like maybe allow the user to search the list of search results? idk maybe this kind of thing is not needed if good middleware implemented that enable safe and effective search results from user. The user may not need to search the search results if search results are accurately finding the user’s request. 
 
-3. Learn how to create sortable columns in React. When the ESI/API responds with data I want that data to be displayed in the seller's / buyer's window in such a way the user can sort the data by price, quantity, or any column the user decides. 
+3. Add to the Tabs component a display of the currently selected item. Display item name at first, later dispaly item icon.
 
-4. Add to the Tabs component a display of the currently selected item. Display item name at first, later dispaly item icon.
+4. Learn how ot implement user auth.
 
 
 ## UPDATES:
@@ -112,3 +112,16 @@ TODO's: "Expires in" needs to show time remaining, move algorithm from 3/30/2023
 # update 4/3/2023
 
 Found above average job postings for my tech stack in my local area and spent extra time working on job applications and networking. 
+
+# update 4/4/2023
+
+1. Worked on date diff logic for the "Expires in" column. 
+
+# update 4/5/2023
+
+1. Completed the logic and math for the "Expires in" column. YEAH math!!
+
+2. not sure if jumps columns are going to work, I think I will need to remove this column.  
+
+3. I will begin to look at the location column and decide how this should work. I think I will need to find a way to access the location id from the item object and convert the id to a readable name for the user.
+

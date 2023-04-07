@@ -72,11 +72,28 @@ function SellWindow({ marketData }) {
               <th onClick={() => sorting("volume_remain")}>Quantity</th>
               <th onClick={() => sorting("price")}>Price</th>
               <th>Location</th>
-              <th>Expires in</th>
+              <th onClick={() => sorting("issued")}>Expires in</th>
             </tr>
           </thead>
           <tbody>
             {marketData.map((item) => {
+                  const currentDate = new Date().getTime();
+                  const issuedDate = new Date(item.issued).getTime();
+                  const dateDiff = (currentDate - issuedDate) / 86400000;
+                  const expiresIn = item.duration - dateDiff;
+
+                  const days = Math.trunc(expiresIn);
+
+                  const milliSecRemainAfterDays = (currentDate - issuedDate) % 86400000;
+                  const hours = 24 - (Math.trunc(milliSecRemainAfterDays / 3600000));
+
+                  const milliSecRemainAfterHours = milliSecRemainAfterDays % 3600000;
+                  const minutes = 60 - (Math.trunc(milliSecRemainAfterHours / 60000));
+
+                  const milliSecRemainAfterMinutes = milliSecRemainAfterHours % 60000;
+                  const seconds = 60 - (Math.trunc(milliSecRemainAfterMinutes / 1000));
+                  console.log(item.issued)
+
               return (
                 <tr key={item.order_id}>
                   {item.is_buy_order ? null : (
@@ -85,7 +102,8 @@ function SellWindow({ marketData }) {
                       <td> {item.volume_remain} </td>
                       <td> {item.price} </td>
                       <td> Location *needlogic*</td>
-                      <td> {item.duration}*need logic </td>
+                      <td> {days}d {hours}h {minutes}m {seconds}s </td>
+
                     </>
                   )}
                 </tr>

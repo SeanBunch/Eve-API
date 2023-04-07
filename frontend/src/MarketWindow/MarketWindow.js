@@ -9,17 +9,17 @@ function MarketWindow() {
   const [itemSelected, setItemSelected] = useState(0);
   const [ region, setRegion ] = useState("10000002");
 
-//   useEffect(() => {
-//     async function dateCompare() {
-//       const currentDate = new Date().getTime();
-//       const issuedDate = new Date(marketData[3].issued).getTime();
+  useEffect(() => {
+    async function dateCompare() {
+      const currentDate = new Date().getTime();
+      const issuedDate = new Date(marketData[3].issued).getTime();
       
-//       const dateDiff = (currentDate - issuedDate) / 86400
-//       console.log("issuedDate:", issuedDate, "currentDate:", currentDate, "dateDiff:", dateDiff);
-//     }
-//     dateCompare()
+      const dateDiff = (currentDate - issuedDate) / 86400000
+      console.log("issuedDate:", issuedDate, "currentDate:", currentDate, "dateDiff:", dateDiff, "marektData[3]:", marketData[3] );
+    }
+    dateCompare()
 
-// }, [marketData])
+}, [marketData])
 
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function MarketWindow() {
 
         const dataESI = await response.json()
         setMarketData(dataESI)
-
+        
       } catch (error) {
         console.error(error.message)
       }

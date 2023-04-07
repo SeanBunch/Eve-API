@@ -32,6 +32,22 @@ function BuyWindow({ marketData }) {
           </thead>
           <tbody>
             {marketData.map((item) => {
+                  const currentDate = new Date().getTime();
+                  const issuedDate = new Date(item.issued).getTime();
+                  const dateDiff = (currentDate - issuedDate) / 86400000;
+                  const expiresIn = item.duration - dateDiff;
+   
+                  const days = Math.trunc(expiresIn);
+   
+                  const milliSecRemainAfterDays = (currentDate - issuedDate) % 86400000;
+                  const hours = 24 - (Math.trunc(milliSecRemainAfterDays / 3600000));
+   
+                  const milliSecRemainAfterHours = milliSecRemainAfterDays % 3600000;
+                  const minutes = 60 - (Math.trunc(milliSecRemainAfterHours / 60000));
+   
+                  const milliSecRemainAfterMinutes = milliSecRemainAfterHours % 60000;
+                  const seconds = 60 - (Math.trunc(milliSecRemainAfterMinutes / 1000));
+
               return (
                 <tr key={item.order_id}>
                   {item.is_buy_order ? (
@@ -40,7 +56,7 @@ function BuyWindow({ marketData }) {
                       <td> {item.volume_remain} </td>
                       <td> {item.price} </td>
                       <td> Location *needlogic*</td>
-                      <td> {item.duration}*need logic </td>
+                      <td> {days}d {hours}h {minutes}m {seconds}s </td>
                     </>
                   ) : null}
                 </tr>
