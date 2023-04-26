@@ -65,7 +65,7 @@ function SellWindow({ marketData }) {
     <div className="container tbl-container border border-secondary">
         <h5>Seller's Window</h5>
       <div className="row tbl fixtable-responsive scrollable">
-        <table className="table table-bordered table-dark table-sm ">
+        <table className="table table-bordered table-dark table-sm">
           <thead className="sticky">
             <tr>
               <th>Jumps</th>
@@ -92,7 +92,6 @@ function SellWindow({ marketData }) {
 
                   const milliSecRemainAfterMinutes = milliSecRemainAfterHours % 60000;
                   const seconds = 60 - (Math.trunc(milliSecRemainAfterMinutes / 1000));
-                  console.log(item.issued)
 
               return (
                 <tr key={item.order_id}>

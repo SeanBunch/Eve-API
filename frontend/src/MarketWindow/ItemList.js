@@ -34,19 +34,19 @@ function ItemList({ searchResults, setItem }) {
     setItem(typeId);
   };
 
-  // loop through search results from parent component <SearchBar/> and when the name is clicked do the APi call to get price.
+  // loop through search results from parent component <SearchBar/> and when the name is clicked make the APi call to get price.
 
   return (
-    <div className="border border-secondary">
+    <div className="border border-secondary" style={{ height: "500px", width: "200px" }}>
       <h4>Search results</h4>
 
       <div>
-        <ul className="overflow-auto" style={{ height: "500px" }}>
+        <ul className="overflow-auto" style={{ height: "461px", width: "198px", padding: "0" }}>
           {searchResults.map((item) => {
             return (
               <li
                 key={item.type_id}
-                className="list-group-item-dark list-unstyled"
+                className="table table-bordered table-dark table-sm"
                 onClick={clickHandler}
                 value={item.type_id}
               >

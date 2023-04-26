@@ -125,3 +125,10 @@ Found above average job postings for my tech stack in my local area and spent ex
 
 3. I will begin to look at the location column and decide how this should work. I think I will need to find a way to access the location id from the item object and convert the id to a readable name for the user.
 
+# update 4/25/2023
+
+1. Started looking at middleware for data validation. Need to be a string. Needs to be a string of a limited amount. Should exclude symbols like >, <, =, "()", /, {}, [], and !@#$%^&*. If users enters these caracters the app needs to inform the users the data input rules. Pop-up maybe? Maybe there is a smoother way to inform the user. Perhaps a note pops up when the cursor hoovers over the search input field? 
+
+2. Not all search results are returning market data when clicked on by the user. Maybe the item ID needs to be updated in the database or the item is not on the market. Jita market is robust so the likleyhood the item is not on the market is extreamly low. I will look into the item ID's and see if things need to be updated and look for more cluse to why this is happening. 
+
+3. Also looked into the tabs row. Would like to display item image and search list being displayed in a dropdown scrollable menu in the search list similar to the ingame UI works. 
