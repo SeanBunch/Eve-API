@@ -132,3 +132,9 @@ Found above average job postings for my tech stack in my local area and spent ex
 2. Not all search results are returning market data when clicked on by the user. Maybe the item ID needs to be updated in the database or the item is not on the market. Jita market is robust so the likleyhood the item is not on the market is extreamly low. I will look into the item ID's and see if things need to be updated and look for more cluse to why this is happening. 
 
 3. Also looked into the tabs row. Would like to display item image and search list being displayed in a dropdown scrollable menu in the search list similar to the ingame UI works. 
+
+# update 5/18/2023
+
+Worked on optimizing the search input so that the user cannot search for special characters and limit the length of the string that can be entered into the field. I am working on providing error handling and pop up for the user to instruct the user on the limits of the search. For example, if the user attempts to search for special character the application should make the user aware that special characters are not a valid input value.  
+
+Got the alert to work with an if() in the clickHandler() for the search input. Now when the user attempts to search with an invalid string the application will notify the user with an alert. 

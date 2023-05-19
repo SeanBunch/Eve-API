@@ -3,9 +3,9 @@ import ItemList from "./ItemList";
 import { getItemId } from "../Utilities/API";
 
 function SearchBar({ setItem, setRegion }) {
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
+  const [ searchValue, setSearchValue ] = useState("");
+  const [ searchResults, setSearchResults ] = useState([]);
+console.log(searchValue)
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
   };
@@ -17,18 +17,22 @@ function SearchBar({ setItem, setRegion }) {
   const clickHandler = (event) => {
     event.preventDefault();
     const abortController = new AbortController();
-
-    async function getId() {
-      const response = await getItemId(searchValue, abortController.signal);
-      setSearchResults(response);
+    const specialChars = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+    
+    if (searchValue.length > 15 || searchValue.length < 4 || specialChars.test(searchValue)) {
+      alert("Search must be between 3 and 15 characters and no special characters.")
     }
 
-    getId();
+      async function getId() {
+        const response = await getItemId(searchValue, abortController.signal);
+        setSearchResults(response);
+      }
+      getId();
   };
 
   return (
     <div>
-      <h4>Search-Bar Column</h4>
+      <h4>Select Region</h4>
       <div className="dropdown">
         <label>Region: </label>
         <select
@@ -53,7 +57,9 @@ function SearchBar({ setItem, setRegion }) {
           onChange={changeHandler}
           value={searchValue}
         />
-        <button className="btn btn-secondary" onClick={clickHandler}>
+        <button 
+        className="btn btn-secondary" 
+        onClick={clickHandler}>
           Search
         </button>
       </div>

@@ -5,7 +5,7 @@ function SellWindow({ marketData }) {
 //   const tableData = marketData;
 //   const [sortedField, setSortedField] = useState(null);
 //   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
-  const [order, setOrder] = useState("ascending");
+  const [ order, setOrder ] = useState("ascending");
 
   // const tableMemo = useMemo(() => {
   //     let sortedTable = [...tableData];

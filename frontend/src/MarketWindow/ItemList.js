@@ -27,7 +27,7 @@ function ItemList({ searchResults, setItem }) {
   // =======================================================
   // =======================================================
 
-
+  
   const clickHandler = (event) => {
     event.preventDefault();
     const typeId = event.target.value;
