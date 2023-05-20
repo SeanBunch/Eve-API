@@ -1,20 +1,48 @@
 import React, { useState } from "react";
 import "../App.css"
 
-function BuyWindow({ marketData }) {
-  const [order, setOrder] = useState("ascending");
-  const [data, setData] = useState([]);
+function BuyWindow({ marketData, locationList }) {
+  const [ order, setOrder ] = useState("ascending");
+  // const [ locationList, setlocationList ] = useState({});
 
   const sorting = (col) => {
     if (order === "ascending") {
-      const sorted = marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
+     marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
       setOrder("decending");
     }
     if (order === "decending") {
-      const sorted = marketData.sort((a, b) => (a[col] > b[col] ? 1 : -1));
+       marketData.sort((a, b) => (a[col] > b[col] ? 1 : -1));
       setOrder("ascending");
     }
   };
+
+// ================================================================================
+// not sure if the code below should go here or in the useEffect where the marketData is called. For now I have put this block of code for the location in the useEffect where the marketData is being called in the MarketWindow component.
+// ================================================================================
+  // useEffect(() => {
+  //   async function getLocationNames() {
+  //     for (let item of marketData) {
+  //       if (item.location_id < 100000000) {
+  //         const locId = item.location_id;
+          
+  //         if (!locationList.locId) {
+  //           const apiResponse = await fetch(`https://esi.evetech.net/latest/universe/stations/${locId}/?datasource=tranquility`);
+  //           const stationInfo = await apiResponse.json()
+  //           setlocationList(locationList[locId] = stationInfo.name)
+            
+  //         }
+  //       }
+  //     }
+  //   }
+  //   getLocationNames()
+
+  //   setTimeout(() => {
+  //     console.log("locationList:", locationList)
+      
+  //   }, 2000);
+    
+  // },[marketData])
+// ================================================================================
 
   return (
     <div className="container tbl-container border border-secondary">
@@ -48,6 +76,8 @@ function BuyWindow({ marketData }) {
                   const milliSecRemainAfterMinutes = milliSecRemainAfterHours % 60000;
                   const seconds = 60 - (Math.trunc(milliSecRemainAfterMinutes / 1000));
 
+                  const locationId = item.location_id;
+
               return (
                 <tr key={item.order_id}>
                   {item.is_buy_order ? (
@@ -55,7 +85,7 @@ function BuyWindow({ marketData }) {
                       <td> Jumps *needlogic*</td>
                       <td> {item.volume_remain} </td>
                       <td> {item.price} </td>
-                      <td> Location *needlogic*</td>
+                      <td> {locationList[locationId]} </td>
                       <td> {days}d {hours}h {minutes}m {seconds}s </td>
                     </>
                   ) : null}
@@ -67,29 +97,6 @@ function BuyWindow({ marketData }) {
       </div>
     </div>
   );
-
-  // return(
-  //     <div className="border border-secondary">
-  //         <h6>
-  //         Buyer's Window
-  //         </h6>
-
-  //         <div >
-  //             <ul className="overflow-auto" style={{ height: "250px" }}>
-  //                 <h4>sortable columns in sellers window</h4>
-  //                 {marketData.map((item) => {
-
-  //                     return <div key={item.order_id}>
-  //                         {item.is_buy_order ? <li className="list-group-item-dark list-unstyled"> Jumps | {item.volume_remain} |{item.price}  | Location | Expires in</li> : null  }
-  //                     </div>
-  //                 })}
-
-  //             </ul>
-
-  //         </div>
-
-  //     </div>
-  // )
 }
 
 export default BuyWindow;

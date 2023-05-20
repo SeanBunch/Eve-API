@@ -9,9 +9,9 @@ app.use(express.json());
 
 app.use("/search", searchRouter)
 
-app.use("/", (req, res, next) => {
-    res.json({ data: "EVE APP"})
-})
+// app.use("/", (req, res, next) => {
+//     res.json({ data: data})
+// })
 
 
 

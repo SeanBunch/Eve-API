@@ -138,3 +138,33 @@ Found above average job postings for my tech stack in my local area and spent ex
 Worked on optimizing the search input so that the user cannot search for special characters and limit the length of the string that can be entered into the field. I am working on providing error handling and pop up for the user to instruct the user on the limits of the search. For example, if the user attempts to search for special character the application should make the user aware that special characters are not a valid input value.  
 
 Got the alert to work with an if() in the clickHandler() for the search input. Now when the user attempts to search with an invalid string the application will notify the user with an alert. 
+
+# 5/19/2023
+
+Working on the location column to properly display the station name where the item is being sold at. This can be achieved by accessing the value of the location_id attribute inside the marketData useState() variable and making an API/ESI call with the location_id in the url as a template literal.
+
+Okay I get marketData from an API call 
+API call provides a marketData array that has a list of objects with the market data such as buy price, sell price, time stamps, and a location_id. 
+Showing buy price, sell price, timestamps to the user is in the HTML table like this
+
+    <td> Jumps needlogic</td>
+    <td> { item.volume_remain } </td>
+    <td> { item.price } </td>
+    <td> needs logic </td>
+    <td> { days }d { hours }h { minutes }m { seconds }s </td>
+
+
+Where I am looping through the marketData array and each item is an object that references the data in the HTML table. item.price for example is in the <td></td>. 
+
+Okay thats the set up. the problem is that the location provided in the marketData API call gives a location_id number.... 
+The user needs the name of the location not the location id number.
+The API I am using has a different url endpoint to get the location information, such as name. 
+So I make a second API call to get the location data so that I can get the name of the location.
+but now I am not sure how to get the location name to show up in the HTML table. What is happening is the HTML table is rendering before the API call is resovled with the location data that has the location name.
+
+I fixed a bug where the search submit button would cause the application to crash if the input field was blank when the submitt button was clicked. In the app.js file for the server the json response was a string but now it is the data. 
+
+
+        
+
+

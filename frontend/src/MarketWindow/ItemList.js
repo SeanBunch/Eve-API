@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function ItemList({ searchResults, setItem }) {
   // ================Code moved==========================
@@ -26,7 +26,7 @@ function ItemList({ searchResults, setItem }) {
   // =======================================================
   // =======================================================
   // =======================================================
-
+console.log("searchresults itemlist:", searchResults)
   
   const clickHandler = (event) => {
     event.preventDefault();

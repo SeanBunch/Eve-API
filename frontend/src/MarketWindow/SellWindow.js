@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import "../App.css";
 
 function SellWindow({ marketData }) {
@@ -52,11 +52,11 @@ function SellWindow({ marketData }) {
 
   const sorting = (col) => {
     if (order === "ascending") {
-      const sorted = marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
       setOrder("decending");
     }
     if (order === "decending") {
-      const sorted = marketData.sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      marketData.sort((a, b) => (a[col] > b[col] ? 1 : -1));
       setOrder("ascending");
     }
   };

@@ -5,7 +5,7 @@ import { getItemId } from "../Utilities/API";
 function SearchBar({ setItem, setRegion }) {
   const [ searchValue, setSearchValue ] = useState("");
   const [ searchResults, setSearchResults ] = useState([]);
-console.log(searchValue)
+  
   const changeHandler = (event) => {
     setSearchValue(event.target.value);
   };
@@ -18,7 +18,7 @@ console.log(searchValue)
     event.preventDefault();
     const abortController = new AbortController();
     const specialChars = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
-    
+
     if (searchValue.length > 15 || searchValue.length < 4 || specialChars.test(searchValue)) {
       alert("Search must be between 3 and 15 characters and no special characters.")
     }
