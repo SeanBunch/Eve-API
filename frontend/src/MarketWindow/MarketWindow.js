@@ -27,10 +27,9 @@ function MarketWindow() {
   useEffect(() => {
     async function getMarketESI() {
       try {
-        const response = await fetch(`https://esi.evetech.net/latest/markets/${region}/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`);
-        const dataESI = await response.json();
+        const esiData = await fetch(`https://esi.evetech.net/latest/markets/${region}/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`).json();
         const uniqueLocationIds = [];
-        for (let item of marketData) {
+        for (let item of esiData) {
           if (item.location_id < 100000000) {
             const locId = item.location_id.toString();
             if(!uniqueLocationIds.includes(locId)){
@@ -38,10 +37,11 @@ function MarketWindow() {
             }
           }
         }
-
+        
         const stationIdByName = await stationNamePromise(uniqueLocationIds);
+
         setStationIdByName(stationIdByName);
-        setMarketData(dataESI)
+        setMarketData(esiData);      
       } catch (error) {
         console.error(error.message)
       }
