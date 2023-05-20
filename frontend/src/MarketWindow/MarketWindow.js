@@ -4,33 +4,44 @@ import SearchBar from "./SearchBar";
 import SellWindow from "./SellWindow";
 import Tabs from "./Tabs";
 
+const stationNamePromise = (uniqueLocationIds) => new Promise((resolve, reject) => {
+      const stationIdByName = {};
+        uniqueLocationIds.forEach(async (locId) => {
+          try {
+            const stationName = (await fetch(`https://esi.evetech.net/latest/universe/stations/${locId}/?datasource=tranquility`)).json();
+            stationIdByName[locId] = stationName;
+          } catch (error) {
+            reject(error.message);
+          }
+        });  
+        resolve(stationIdByName); 
+});
+
 function MarketWindow() {
   const [marketData, setMarketData] = useState([]);
   const [itemSelected, setItemSelected] = useState(0);
   const [ region, setRegion ] = useState("10000002");
-  const [ locationList, setlocationList ] = useState({});
+  const [ stationIdByName, setStationIdByName ] = useState({});
 
 
   useEffect(() => {
     async function getMarketESI() {
       try {
         const response = await fetch(`https://esi.evetech.net/latest/markets/${region}/orders/?datasource=tranquility&order_type=all&page=1&type_id=${itemSelected}`);
-
         const dataESI = await response.json();
-        setMarketData(dataESI)
-
+        const uniqueLocationIds = [];
         for (let item of marketData) {
           if (item.location_id < 100000000) {
-            const locId = item.location_id;
-            
-            if (!locationList.locId) {
-              const apiResponse = await fetch(`https://esi.evetech.net/latest/universe/stations/${locId}/?datasource=tranquility`);
-              const stationInfo = await apiResponse.json()
-              setlocationList(locationList[locId] = stationInfo.name)
-              
+            const locId = item.location_id.toString();
+            if(!uniqueLocationIds.includes(locId)){
+              uniqueLocationIds.push(locId);
             }
           }
         }
+
+        const stationIdByName = await stationNamePromise(uniqueLocationIds);
+        setStationIdByName(stationIdByName);
+        setMarketData(dataESI)
       } catch (error) {
         console.error(error.message)
       }
@@ -77,7 +88,7 @@ function MarketWindow() {
             <SellWindow marketData={marketData} />
             <br/>
 
-            <BuyWindow marketData={marketData} locationList={locationList} />
+            <BuyWindow marketData={marketData} stationIdByName={stationIdByName} />
           </div>
         </div>
       </div>
