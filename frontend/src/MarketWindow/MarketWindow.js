@@ -4,26 +4,27 @@ import SearchBar from "./SearchBar";
 import SellWindow from "./SellWindow";
 import Tabs from "./Tabs";
 
-const stationNamePromise = (uniqueLocationIds) => new Promise((resolve, reject) => {
-      const stationIdByName = {};
-        uniqueLocationIds.forEach(async (locId) => {
-          try {
-            const stationName = (await fetch(`https://esi.evetech.net/latest/universe/stations/${locId}/?datasource=tranquility`)).json();
-            stationIdByName[locId] = stationName;
-          } catch (error) {
-            reject(error.message);
-          }
-        });  
-        resolve(stationIdByName); 
-});
 
 function MarketWindow() {
   const [marketData, setMarketData] = useState([]);
   const [itemSelected, setItemSelected] = useState(0);
   const [ region, setRegion ] = useState("10000002");
   const [ stationIdByName, setStationIdByName ] = useState({});
-
-
+  
+  
+  const stationNamePromise = (uniqueLocationIds) => new Promise((resolve, reject) => {
+        const stationIdByName = {};
+          uniqueLocationIds.forEach(async (locId) => {
+            try {
+              const stationName = (await fetch(`https://esi.evetech.net/latest/universe/stations/${locId}/?datasource=tranquility`)).json();
+              stationIdByName[locId] = stationName;
+            } catch (error) {
+              reject(error.message);
+            }
+          });  
+          resolve(stationIdByName); 
+  });
+  
   useEffect(() => {
     async function getMarketESI() {
       try {
