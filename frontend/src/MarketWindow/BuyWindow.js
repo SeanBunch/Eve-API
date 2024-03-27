@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "../App.css"
 
-function BuyWindow({ marketData, locationList }) {
+function BuyWindow({ marketData, stationNameList }) {
   const [ order, setOrder ] = useState("ascending");
-  // const [ locationList, setlocationList ] = useState({});
-
   const sorting = (col) => {
     if (order === "ascending") {
      marketData.sort((a, b) => (a[col] < b[col] ? 1 : -1));
@@ -85,7 +83,7 @@ function BuyWindow({ marketData, locationList }) {
                       <td> Jumps *needlogic*</td>
                       <td> {item.volume_remain} </td>
                       <td> {item.price} </td>
-                      <td> {locationList[locationId]} </td>
+                      <td> {stationNameList[locationId]} </td>
                       <td> {days}d {hours}h {minutes}m {seconds}s </td>
                     </>
                   ) : null}
